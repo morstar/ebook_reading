@@ -8,9 +8,14 @@
 		<!-- Collect the nav links, forms, and other content for toggling -->
 		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav navbar-right">
-				<li>
-					<%= link_to("登入", '#') %>
-				</li>
+				<% unless book_signed_in? %>
+					<li><a href="#">Explore</a></li>
+					<li><%= link_to("注册书籍", new_book_registration_path ) %></li>
+					<li><%= link_to("登录书籍", new_book_session_path ) %></li>
+				<% else %>
+					<li><a href="#">Dashboard</a></li>
+					<li><%= link_to "登出", destroy_book_session_path, method: :delete %></li>
+				<% end %>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

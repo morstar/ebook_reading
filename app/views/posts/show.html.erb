@@ -1,0 +1,12 @@
+ <div id="book_show">
+
+	<div id="breadcrumb">
+		<%= link_to "All Books", books_path %>
+		<span>/</span>
+		<%= link_to @book.id, book_path(@book) %>
+	</div>
+	<div id="post_show">
+		<%= image_tag @post.thumbnail.url(:large) %>
+		<h2><%= @post.description %></h2>
+	</div>
+</div>

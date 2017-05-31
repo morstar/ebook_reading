@@ -9,10 +9,14 @@ class PostsController < ApplicationController
 	def create
 		@post = @book.posts.new(post_params)
 		if @post.save
-			redirect_to root_path
+			redirect_to book_post_path(@book,@post)
 		else
 			render 'new'
 		end
+	end
+
+	def show
+		@pages = Page.where(book_id: @book)
 	end
 
 private

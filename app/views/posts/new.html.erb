@@ -1,0 +1,24 @@
+<div id="book_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @book.title %></h1>
+		</div>
+	</div>
+
+	<div id="links">
+		<div class="wrapper_skinny">
+			<ul>
+				<li><%= link_to "Posts", root_path %></li>
+				<li class="current" >Add New Post</li>
+				<li><%= link_to "Book Settings", edit_book_registration_path %></li>
+				<li><%= link_to "View Books", books_path %></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="form">
+		<div class="wrapper_skinny">
+			<%= render 'form' %>
+		</div>
+	</div>
+</div>

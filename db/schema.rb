@@ -10,23 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531145303) do
+ActiveRecord::Schema.define(version: 20170531183231) do
 
   create_table "books", force: :cascade do |t|
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                       default: "", null: false
+    t.string   "encrypted_password",          default: "", null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",               default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "title"
     t.text     "description"
+    t.string   "book_thumbnail_file_name"
+    t.string   "book_thumbnail_content_type"
+    t.integer  "book_thumbnail_file_size"
+    t.datetime "book_thumbnail_updated_at"
     t.index ["email"], name: "index_books_on_email", unique: true
     t.index ["reset_password_token"], name: "index_books_on_reset_password_token", unique: true
   end
@@ -34,8 +38,12 @@ ActiveRecord::Schema.define(version: 20170531145303) do
   create_table "posts", force: :cascade do |t|
     t.text     "description"
     t.integer  "book_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "thumbnail_file_name"
+    t.string   "thumbnail_content_type"
+    t.integer  "thumbnail_file_size"
+    t.datetime "thumbnail_updated_at"
     t.index ["book_id"], name: "index_posts_on_book_id"
   end
 

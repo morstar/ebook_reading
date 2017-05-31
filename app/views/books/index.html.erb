@@ -8,7 +8,7 @@
 			<% @books.each do |book| %>
 				<%= link_to book do %>
 					<li>
-						<img src="#">
+						<%= image_tag book.book_thumbnail.url(:medium) %>
 						<div class="book_overview">
 							<h2><%= book.title %></h2>
 							<p class="page_count">1 page</p>

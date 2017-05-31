@@ -1,0 +1,42 @@
+<div id="book_show">
+	<div id="show_banner">
+		<div class="wrapper_skinny">
+			<h1><%= @book.title %></h1>
+		</div>
+	</div>
+
+	<div id="links">
+		<div class="wrapper_skinny">
+			<ul>
+				<li class="current">Pages</li>
+				<li><%= link_to "Add New post", new_book_post_path(@book) %></li>
+				<li><%= link_to "Book Settings", edit_book_registration_path %></li>
+				<li><%= link_to "View Books", books_path %></li>
+			</ul>
+		</div>
+	</div>
+
+	<div id="posts">
+		<div class="wrapper_skinny">
+			<ul class="cf">
+				<% @posts.each do |post| %>
+					<li class="cf">
+						<div class="post_thumbnail">
+							<a href="#">
+								<%= image_tag post.thumbnail.url(:large) %>
+							</a>
+						</div>
+						<div class="post_overview">
+							<h2><%= link_to post.description, book_post_path(@book, post) %></h2>
+							<p>post No. <%= post.id %></p>
+							<div class="authorized_links">
+								<%= link_to "Edit", edit_book_post_path(@book, post) %>
+								<%= link_to "Delete", book_post_path(@book, post), method: :delete, data: {confirm: "Are you sure?"} %>
+							</div>
+						</div>
+					</li>
+				<% end %>
+			</ul>
+		</div>
+	</div>
+</div>

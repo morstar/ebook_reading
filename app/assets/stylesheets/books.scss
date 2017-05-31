@@ -97,7 +97,7 @@ $light: #EDEFF5;
       margin: 0 .5rem;
     }
   }
-  #pages {
+  #posts {
     padding: 3rem 0;
     ul {
       list-style: none;
@@ -109,7 +109,7 @@ $light: #EDEFF5;
         &:last-child {
           border-bottom: none;
         }
-        .page_thumbnail {
+        .post_thumbnail {
           width: 22%;
           float: left;
           img {
@@ -118,7 +118,7 @@ $light: #EDEFF5;
             border-radius: .35rem;
           }
         }
-        .page_overview {
+        .post_overview {
           width: 76.5%;
           float: left;
           margin-left: 1.5%;
@@ -143,11 +143,11 @@ $light: #EDEFF5;
       }
     }
   }
-  #page_content {
+  #post_content {
     padding: 4rem 0;
     margin-bottom: 4rem;
     border-bottom: 1px solid lighten($dark, 75%);
-    .current_page_thumbnail {
+    .current_post_thumbnail {
       display: block;
       margin: 0 auto 2rem auto;
       width: 10rem;

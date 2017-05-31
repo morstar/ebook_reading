@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+	before_action :authenticate_book!, except: [:show]
+	before_action :require_permission
 	before_action :find_book
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 
@@ -9,20 +11,37 @@ class PostsController < ApplicationController
 	def create
 		@post = @book.posts.new(post_params)
 		if @post.save
-			redirect_to book_post_path(@book,@post)
+			redirect_to root_path
 		else
 			render 'new'
 		end
 	end
-
+ 
 	def show
-		@pages = Page.where(book_id: @book)
+		@posts = post.where(book_id: @book).order(:id)
+	end
+
+	def edit
+		
+	end
+
+	def update
+		if @post.update post_params
+			redirect_to book_post_path(@book, @post), notice: "post was succesfully updated!"
+		else
+			render 'edit'
+		end
+	end
+
+	def destroy
+		@post.destroy
+		redirect_to root_path
 	end
 
 private
 
 	def post_params
-		params.require(:post).permit(:title, :description)
+		params.require(:post).permit(:description, :thumbnail, :id, :mp3)
 	end
 
 	def find_book
@@ -33,4 +52,10 @@ private
 		@post = Post.find(params[:id])
 	end
 
+	def require_permission
+		@book =Book.find(params[:book_id])
+		if current_book != @book
+			redirect_to root_path, notice: "Sorry, you're not allow to view that post."
+		end
+	end
 end

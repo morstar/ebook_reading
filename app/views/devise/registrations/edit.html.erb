@@ -8,10 +8,10 @@
   <div id="links">
     <div class="wrapper_skinny">
       <ul>
-        <li class="current">Pages</li>
-        <li><a href="#">New Page</a></li>
-        <li><a href="#">Book Setting</a></li>
-        <li><a href="#">View Books</a></li>
+        <li><%= link_to "Pages", root_path %></li>
+        <li><%= link_to "Add New Page", new_book_post_path(@book) %></li>
+        <li class="current" >Book Settings</li>
+        <li><%= link_to "View Books", books_path %></li>
       </ul>
     </div>
   </div>

@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 	end
  
 	def show
-		@posts = post.where(book_id: @book).order(:id)
+		@posts = Post.where(book_id: @book).order(:id)
 	end
 
 	def edit

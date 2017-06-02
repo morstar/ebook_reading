@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
-	before_action :authenticate_book!, except: [:show]
-	before_action :require_permission
+	before_action :authenticate_book!
+	before_action :require_permission, except: [:show]
 	before_action :find_book
 	before_action :find_post, only: [:show, :edit, :update, :destroy]
 

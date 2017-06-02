@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 	before_action :find_post, only: [:show, :dashboard]
 
 	def index
-		@books = Book.all.order("created_at DESC")
+		@books = Book.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 9)
 	end
 
 	def show
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
 	private
 
 	def find_post
-		@posts = Post.where(book_id: @book).order(:id)
+		@posts = Post.where(book_id: @book).order(:id).paginate(:page => params[:page], :per_page => 6)
 	end
 
 	def find_book

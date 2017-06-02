@@ -2,6 +2,9 @@ $white: #FFFFFF;
 $highlight: #EE7964;
 $dark: #2C3135;
 $light: #EDEFF5;
+$easy: #A69DB2;
+$normal: #E7BE6F;
+$hard: #CC3961;
 
 #books {
   padding-bottom: 3rem;
@@ -29,8 +32,18 @@ $light: #EDEFF5;
           font-weight: 700;
           color: $dark;
         }
-        .page_count {
-          color: lighten($dark, 50%);
+        .book_category_easy {
+          color: lighten($easy, 50%);
+          font-size: .9rem;
+          margin: .5rem 0 .25rem 0;
+        }
+        .book_category_normal {
+          color: lighten($normal, 50%);
+          font-size: .9rem;
+          margin: .5rem 0 .25rem 0;
+        }
+        .book_category_hard {
+          color: lighten($hard, 50%);
           font-size: .9rem;
           margin: .5rem 0 .25rem 0;
         }

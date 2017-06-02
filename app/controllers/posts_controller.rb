@@ -18,7 +18,7 @@ class PostsController < ApplicationController
 	end
  
 	def show
-		@posts = Post.where(book_id: @book).order(:id)
+		@posts = Post.where(book_id: @book).order(:id).paginate(:page => params[:page], :per_page => 1)
 	end
 
 	def edit

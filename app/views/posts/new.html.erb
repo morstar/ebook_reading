@@ -18,7 +18,24 @@
 
 	<div id="form">
 		<div class="wrapper_skinny">
-			<%= render 'form' %>
-		</div>
+<%= form_for ([@book, @post]) do |f| %>
+
+	<div class="field">
+		<%= f.label :picture %><br>
+		<%= f.file_field :thumbnail %>
+	</div>
+
+	<div class="field">
+		<%= f.label :description %><br>
+		<%= f.text_area :description %>
+	</div>
+
+	<div class="field">
+		<%= f.label :mp3 %><br>
+		<%= f.file_field :mp3 %>
+	</div>
+
+	<%= f.submit class: "button button_highlight button_block" %>
+<% end %>		</div>
 	</div>
 </div>
